@@ -1,0 +1,39 @@
+<html>
+  <p>
+  Please type any number (from 0 to 100)!
+  </p> 
+  <input id="myInput">
+  <button onclick="myFunction()">
+  Guess
+  </button>
+  <p id="result"></p>
+  <p id="passguesses"></p>
+  <script>
+  random = Math.floor(Math.random() * 100);
+  var count = 10;
+  passResult = "";
+  	function myFunction(){
+    	number = document.getElementById("myInput").value;
+      if (number == random) {
+      	document.getElementById("result").innerHTML = "Correct!";
+        document.getElementById("result").style.backgroundColor = "Green";
+      } 
+      else if (number > random) {
+      count --;
+      	document.getElementById("result").innerHTML = "Too high!, you have "+count+" left";
+        document.getElementById("result").style.backgroundColor = "Red";
+      }
+      else {
+      count --;
+      	document.getElementById("result").innerHTML = "Too low!, you have "+count+" left";
+        document.getElementById("result").style.backgroundColor = "Red";
+      }
+      if (count < 1) {
+      	alert("You failed. The correct number is: " +random+ " .Please try again");
+      }
+      passResult += number + ", ";
+   	 document.getElementById("passguesses").innerHTML = "Your pass guesses: "+passResult+"";
+     
+    }
+  </script>
+</html>
